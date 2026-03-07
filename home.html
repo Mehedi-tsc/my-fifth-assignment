@@ -26,7 +26,8 @@
 <body class="bg-[#F8FAFC]">
     <!-- navbar start -->
     <header>
-        <div class="navbar bg-[#FFFFFF] shadow-sm flex flex-col gap-y-4 lg:flex-row lg:justify-between lg:items-center lg:px-16 py-5">
+        <div
+            class="navbar bg-[#FFFFFF] shadow-sm flex flex-col gap-y-4 lg:flex-row lg:justify-between lg:items-center lg:px-16 py-5">
             <div class="flex gap-1 justify-between items-center">
                 <div class="w-9 h-9">
                     <img src="assets/github-logo.png" alt="">
@@ -47,13 +48,54 @@
                     <input type="search" required placeholder="Search issues..." />
                 </label>
                 <!-- Search box with icon End -->
-                
+
                 <div>
-                    <button class="btn btn-primary flex gap-0 justify-between items-center w-30 p-4"><img src="assets/Plus.png" alt=""><span class="font-semibold">New Issue</span></button>
+                    <button class="btn btn-primary flex gap-0 justify-between items-center w-30 p-4"><img
+                            src="assets/Plus.png" alt=""><span class="font-semibold">New Issue</span></button>
                 </div>
             </div>
         </div>
     </header>
+
+    <main class="my-10 w-11/12 mx-auto space-y-2">
+
+        <!-- 3 tab section start -->
+        <section class="bg-[#FFFFFF] shadow-sm p-6 space-x-2">
+            <button class="btn btn-primary w-28 font-semibold">All</button>
+            <button class="btn w-28 font-semibold text-[#64748B]">Open</button>
+            <button class="btn w-28 font-semibold text-[#64748B]">Closed</button>
+        </section>
+        <!-- 3 tab section End -->
+
+        <!-- below the 3 tab section start -->
+
+        <section class="bg-[#FFFFFF] shadow-sm p-6 flex justify-between items-center">
+            <div class="left flex gap-2 justify-between items-center">
+                <div class="img">
+                    <img src="assets/Aperture.png" alt="">
+                </div>
+                <div class="text">
+                    <h3 class="font-semibold text-xl">50 Issues</h3>
+                    <p class="text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="rirht flex gap-3 justify-center items-center">
+                <div class="open flex justify-center items-center gap-1">
+                    <div class="w-3 h-3 bg-[#00A96E] rounded-full"></div>
+                    <div>
+                        <p class="font-medium">Open</p>
+                    </div>
+                </div>
+                <div class="open flex justify-center items-center gap-1">
+                    <div class="w-3 h-3 bg-[#A855F7] rounded-full"></div>
+                    <div>
+                        <p class="font-medium">Closed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- below the 3 tab section End-->
+    </main>
 
 </body>
 
