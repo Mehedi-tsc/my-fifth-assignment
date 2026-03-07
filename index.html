@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+
+    <!-- tailwind and daisyUI -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="bg-[#FFFFFF] shadow-sm border-base-300 rounded-box w-[90%] md:w-[50%] lg:w-[33%] border p-4 mx-auto">
+        <div class="text-center mb-6">
+            <div class="h-[100px] w-[100px] m-6 mx-auto">
+                <img src="assets/github-logo.png" alt="">
+            </div>
+            <h1 class="text-2xl text-[#000000] font-semibold">GitHub Issues Tracker</h1>
+            <p class="text-base text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+
+        <!-- form start -->
+
+        <form class="fieldset">
+            <fieldset class="fieldset">
+                <label class="label font-medium text-base text-black">Username</label>
+                <input id="input-name" type="text" class="input validator w-full rounded" placeholder="Enter Username" required />
+                <p class="validator-hint hidden">Required</p>
+                <p class="text-sm text-[#4A00FF]">Default: admin</p>
+            </fieldset>
+
+            <label class="fieldset">
+                <span class="label font-medium text-base text-black">Password</span>
+                <input id="input-password" type="password" class="input validator w-full rounded" placeholder="Enter Password" required />
+                <span class="validator-hint hidden">Required</span>
+                <p class="text-sm text-[#4A00FF]">Default: admin123</p>
+            </label>
+        </form>
+        <button id="btn-login" class="btn btn-primary mt-4 rounded w-full" type="submit">Sign In</button>
+
+        <!-- form End -->
+
+        <!-- hr line start -->
+        <div class="flex justify-between items-center my-4">
+            <hr class="w-[45%]">
+            <p>OR</p>
+            <hr class="w-[45%]">
+        </div>
+
+        <!-- hr line end -->
+
+        <p class="text-sm text-[#64748B] text-center mb-2">Demo Credentials:</p>
+        <div class="bg-[#F8FAFC] mx-auto mb-4 py-6 text-center">
+            <p><span class="font-semibold">Username: </span>admin</p>
+            <p><span class="font-semibold">Password: </span>admin123</p>
+        </div>
+    </section>
+    <script src="login.js"></script>
+</body>
+
+</html>
