@@ -9,10 +9,10 @@ function displayCard(card){
     card.forEach(item=> {
         const div = document.createElement('div');
         div.innerHTML = `
-         <div class="card card-body shadow-sm space-y-2 h-70">
+         <div class="card card-body shadow-sm space-y-2 lg:h-70">
                     <div class="card-top flex justify-between items-center">
                         <img src="${item.status==='open'?'assets/Open-Status.png':'assets/Closed- Status .png'}" alt="">
-                        <div class="badge badge-soft badge-success">HIGH</div>
+                        <div class="badge badge-soft ${item.priority==="high" ? "badge-success bg-red-100" : item.priority==="medium" ? "badge-warning":"badge-accent"}">${item.priority.toUpperCase()}</div>
                     </div>
                     <div class="text-part">
                         <h2 class="font-semibold">${item.title}</h2>
@@ -20,20 +20,20 @@ function displayCard(card){
                     </div>
                     <!-- badge part -->
                     <div>
-                        <div class="badge badge-success">
-                            <span><img src="assets/BugDroid.png" alt=""></span>
-                             <span>BUG</span>
+                        <div class="badge badge-success mb-1">
+                            <span><img src="${item.labels[0]==='bug'?'assets/BugDroid.png':item.labels[0]==='help wanted'?'assets/Lifebuoy.png':'assets/vector.png'}" alt=""></span>
+                             <span>${item.labels[0].toUpperCase()}</span>
                         </div>
-                        <div class="badge badge-warning">
+                        <div class="mb-1 badge badge-warning ${item.labels.length<2?'hidden':'inline-flex'}">
                             <span><img src="assets/Lifebuoy.png" alt=""></span>
-                             <span>HELP WANTED</span>
+                             <span>${item.labels[1]?.toUpperCase()}</span>
                         </div>
                     </div>
                     <!-- badge part end -->
                      <hr class="my-1 text-[#E4E4E7]">
                      <div class="space-y-2 text-[#64748B]">
-                        <p>#1by john_doe</p>
-                        <p>1/15/2024</p>
+                        <p>${item.author.toUpperCase()}</p>
+                        <p>${item.createdAt}</p>
                      </div>
                 </div>
         `
