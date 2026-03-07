@@ -10,6 +10,6 @@ loginBtn.addEventListener('click',function(){
     }
     else if(inputUserName.value==='admin' && inputPassword.value==='admin123' ){
        alert('login successfull');
-        window.location.assign("/home.html");
+        window.location.assign("home.html");
     }
 })
