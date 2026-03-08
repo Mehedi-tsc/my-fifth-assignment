@@ -61,9 +61,9 @@
 
         <!-- 3 tab section start -->
         <section class="bg-[#FFFFFF] shadow-sm p-6 flex flex-col justify-center items-center lg:justify-start lg:items-start gap-3 lg:flex-row lg:gap-2">
-            <button class="btn btn-primary w-28 font-semibold">All</button>
-            <button class="btn w-28 font-semibold text-[#64748B]">Open</button>
-            <button class="btn w-28 font-semibold text-[#64748B]">Closed</button>
+            <button id="allBtn" class="btn btn-primary w-28 font-semibold">All</button>
+            <button id="openBtn" class="btn w-28 font-semibold text-[#64748B]">Open</button>
+            <button id="closedBtn" class="btn w-28 font-semibold text-[#64748B]">Closed</button>
         </section>
         <!-- 3 tab section End -->
 
@@ -75,7 +75,7 @@
                     <img src="assets/Aperture.png" alt="">
                 </div>
                 <div class="text">
-                    <h3 class="font-semibold text-xl">50 Issues</h3>
+                    <h3 class="font-semibold text-xl"><span id="count-all">0</span> Issues</h3>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
