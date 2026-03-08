@@ -13,6 +13,7 @@ const modalDescription = document.getElementById('modal-description');
 const modalPriority = document.getElementById('modal-priority');
 const modalLeftBadge = document.getElementById('modal-left-badge');
 const modalRightBadge = document.getElementById('modal-right-badge');
+let searchInput = document.getElementById('search-input');
 
 function showSpinner(){
     spinner.classList.remove('hidden')
@@ -117,7 +118,7 @@ async function showIssueModal(id){
     modalTitle.textContent = result.title;
     modalStatus.textContent =result.status;
     modalStatus.className= `${result.status==='open' ? 'capitalize text-xs text-white badge badge-success' : 'capitalize text-xs text-white badge badge-warning'}`;
-    modalName.textContent = `${result.assignee===""?'not found':result.assignee.split('_').join(' ')}`;
+    modalName.textContent = `${result.author===""?'not found':result.author.split('_').join(' ')}`;
     modalName.className = 'capitalize';
     modalName2.textContent = `${result.assignee===""?'not found':result.assignee.split('_').join(' ')}`;
     modalName2.className = 'capitalize';
@@ -130,4 +131,16 @@ async function showIssueModal(id){
     modalRightBadge.className = `${result.labels.length<2?'hidden': 'mb-1 badge badge-warning'}`
     my_modal_1.showModal();
 }
+async function searchResult(){
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInput.value}`);
+    const data = await res.json();
+    const result = data.data;
+    displayCard(result);
+    allBtn.classList.remove('btn-primary');
+    openBtn.classList.remove('btn-primary');
+    closedBtn.classList.remove('btn-primary');
+    searchInput.value = '';
+
+}
+
 loadingCard();
