@@ -109,6 +109,49 @@
             
         </section>
 
+        <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+            <div class="space-y-2">
+                <h2 id="modal-title" class="font-bold text-2xl"></h2>
+                <div class="flex justify-start items-center gap-2">
+                    <div id="modal-status" class= ""></div>
+                    <div class="w-1 h-1 rounded-full bg-[#64748B]"></div>
+                    <p class="text-xs text-[#64748B]">Opened by <span id="modal-name"></span></p>
+                    <div class="w-1 h-1 rounded-full bg-[#64748B]"></div>
+                    <p id="modal-date" class="text-xs text-[#64748B]"></p>
+                </div> 
+                <div>
+                        <div id="modal-left-badge" class="badge badge-success mb-1">
+                             
+                        </div>
+                        <div id="modal-right-badge" class="">
+                             
+                        </div>
+                    
+                    </div>
+                    <p id="modal-description" class="text-[#64748B] my-2"></p>
+                    <div class="bg-[#F8FAFC] p-3 flex justify-start gap-35">
+                        <div>
+                            <p class="text-[#64748B]">Assignee:</p>
+                            <p id="modal-name-2"></p>
+                        </div>
+                        <div>
+                            <p class="text-[#64748B]">Priority:</p>
+                            <div id="modal-priority"></div>
+                        </div>
+                    </div>
+            </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
     </main>
 <script src="home.js"></script>
 </body>

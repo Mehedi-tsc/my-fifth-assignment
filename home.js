@@ -4,6 +4,15 @@ const allBtn = document.getElementById('allBtn');
 const openBtn = document.getElementById('openBtn');
 const closedBtn = document.getElementById('closedBtn');
 const spinner = document.getElementById('loading-spinner');
+const modalTitle = document.getElementById('modal-title');
+const modalStatus = document.getElementById('modal-status');
+const modalName = document.getElementById('modal-name');
+const modalName2 = document.getElementById('modal-name-2');
+const modalDate = document.getElementById('modal-date');
+const modalDescription = document.getElementById('modal-description');
+const modalPriority = document.getElementById('modal-priority');
+const modalLeftBadge = document.getElementById('modal-left-badge');
+const modalRightBadge = document.getElementById('modal-right-badge');
 
 function showSpinner(){
     spinner.classList.remove('hidden')
@@ -28,7 +37,7 @@ function displayCard(card){
     card.forEach(item=> {
         const div = document.createElement('div');
         div.innerHTML = `
-         <div class="card card-body shadow-sm space-y-2 lg:h-70 border-t-2 ${item.status==='open'?'border-t-green-600':'border-t-purple-700'}">
+         <div onclick = "showIssueModal(${item.id})" class="card card-body shadow-sm space-y-2 lg:h-80 border-t-2 ${item.status==='open'?'border-t-green-600':'border-t-purple-700'}">
                     <div class="card-top flex justify-between items-center">
                         <img src="${item.status==='open'?'assets/Open-Status.png':'assets/Closed- Status .png'}" alt="">
                         <div class="badge badge-soft ${item.priority==="high" ? "badge-success bg-red-100" : item.priority==="medium" ? "badge-warning":"badge-accent"}">${item.priority.toUpperCase()}</div>
@@ -100,4 +109,25 @@ closedBtn.addEventListener('click',function(){
     allBtn.classList.remove('btn-primary');
     closeTab();
 })
+ 
+async function showIssueModal(id){
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+    const data = await res.json();
+    const result = data.data;
+    modalTitle.textContent = result.title;
+    modalStatus.textContent =result.status;
+    modalStatus.className= `${result.status==='open' ? 'capitalize text-xs text-white badge badge-success' : 'capitalize text-xs text-white badge badge-warning'}`;
+    modalName.textContent = `${result.assignee===""?'not found':result.assignee.split('_').join(' ')}`;
+    modalName.className = 'capitalize';
+    modalName2.textContent = `${result.assignee===""?'not found':result.assignee.split('_').join(' ')}`;
+    modalName2.className = 'capitalize';
+    modalDate.textContent = new Date(result.updatedAt).toLocaleDateString();
+    modalDescription.textContent = result.description;
+    modalPriority.textContent = result.priority;
+    modalPriority.className= `${result.priority==='high' ? 'capitalize text-xs text-white badge badge-error' : result.priority==='medium' ? 'capitalize text-xs text-white badge badge-warning': 'capitalize text-xs text-white badge badge-accent'}`;
+    modalLeftBadge.textContent = result.labels[0].toUpperCase();
+    modalRightBadge.textContent = `${result.labels.length<2?'':result.labels[1].toUpperCase()}`;
+    modalRightBadge.className = `${result.labels.length<2?'hidden': 'mb-1 badge badge-warning'}`
+    my_modal_1.showModal();
+}
 loadingCard();
