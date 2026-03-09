@@ -2,8 +2,11 @@
 
     Ans: var is the old way, function scoped, redeclarable and hoisted with 
          undefine.
-         const and let is the modern way, block scoped and cannot redeclare in the same scope. They are also hoisted but make and stay a Temporal Dead Zone.
-         const does not allow change the value where let allow to change the value.
+         const and let is the modern way, block scoped and cannot redeclare 
+         in the same scope. They are also hoisted but make and stay a 
+         Temporal Dead Zone.
+         const does not allow change the value where let allow to change 
+         the value.
 
 2️⃣ What is the spread operator (...)?
 

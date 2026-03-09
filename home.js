@@ -132,10 +132,12 @@ async function showIssueModal(id){
     my_modal_1.showModal();
 }
 async function searchResult(){
+    showSpinner();
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInput.value}`);
     const data = await res.json();
     const result = data.data;
     displayCard(result);
+    closeSpinner();
     allBtn.classList.remove('btn-primary');
     openBtn.classList.remove('btn-primary');
     closedBtn.classList.remove('btn-primary');
